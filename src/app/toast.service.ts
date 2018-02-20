@@ -20,14 +20,18 @@ export class Message {
 @Injectable()
 export class ToastService {
 
+
   constructor(private db: AngularFireDatabase) { }
 
   getMessages(): FirebaseListObservable<Message[]> {
     return this.db.list('/messages', );
+
+
   }
 
   sendMessage(content, style) {
-    const message = new Message(content, style)
+    
+    const message = new Message("i love you", "info")
     this.db.list('/messages').push(message)
   }
 

@@ -14,10 +14,16 @@ export class ToastMessagesComponent implements OnInit {
 
   ngOnInit() {
     this.messages = this.toast.getMessages()
+    console.log(this.messages)
   }
 
-  dismiss(itemKey) {
-    this.toast.dismissMessage(itemKey)
-  }
+  // dismiss(itemKey) {
+  //   this.toast.dismissMessage(itemKey)
+  // }
+
+  // infoMessage() {
+  //   const message = "I have some useful information for you..."
+  //   this.toast.sendMessage(message, 'info')
+  // }
 
 }

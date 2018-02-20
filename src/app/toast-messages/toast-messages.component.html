@@ -1,3 +1,3 @@
-<p>
-  toast-messages works!
-</p>
+<li *ngFor="let item of messages | async | reverse" >
+  <ul>{{ item }}</ul>
+</li>
