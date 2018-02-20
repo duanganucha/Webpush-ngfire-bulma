@@ -40,4 +40,16 @@ export class ToastMessagesComponent implements OnInit {
     this.toast.sendMessage(message, 'info')
   }
 
+  successMessage() {
+    console.log('infoMessage')
+    const message = "I have some useful information for you..."
+    this.toast.sendMessage(message, 'success')
+  }
+
+  dangerMessage() {
+    console.log('infoMessage')
+    const message = "I have some useful information for you..."
+    this.toast.sendMessage(message, 'danger')
+  }
+
 }

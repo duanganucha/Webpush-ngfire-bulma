@@ -1,9 +1,27 @@
-<ul *ngFor="let message of messages | async" >
-  <li>{{ message.payload.val().content }}</li>
-  <button class="delete" (click)="dismiss(message.key)">delete</button>
+<div class="columns">
+    <div class="column">
 
-</ul>
+    <a class="button is-primary" (click)="infoMessage()">infoMessage</a>
+ 
+    <a class="button is-success" (click)="successMessage()">successMessage</a>
 
+    <a class="button is-danger" (click)="dangerMessage()">dangerMessage</a>
+</div>
 
+<div class="column">
+  <div class="wrapper">
 
-<button class="" (click)="infoMessage()">infoMessage</button>
+    <aside *ngFor="let message of messages | async ">
+      <div class="notification" [ngClass]="{
+        'is-info':     message.payload.val().style=='info',
+        'is-danger':   message.payload.val().style=='danger',
+        'is-success':  message.payload.val().style=='success'
+      }">
+
+        <a class="delete" (click)="dismiss(message.key)"></a>
+        {{message.payload.val().content }}
+      </div>
+    </aside>
+  </div>
+
+</div>
