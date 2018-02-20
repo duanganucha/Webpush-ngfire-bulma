@@ -6,11 +6,11 @@
 export const environment = {
   production: false, 
   firebaseconfig: {
-    apiKey: "AIzaSyDz-B2-0vlWDYLIuMedWC_54Bsq-n_9mWU",
-    authDomain: "ionic-firebase-crud-4504e.firebaseapp.com",
-    databaseURL: "https://ionic-firebase-crud-4504e.firebaseio.com",
-    projectId: "ionic-firebase-crud-4504e",
-    storageBucket: "ionic-firebase-crud-4504e.appspot.com",
-    messagingSenderId: "831441420857"
+    apiKey: "AIzaSyBaUaU7pL-yZXpUgbNnGsAqZ45FMQt3v1w",
+    authDomain: "emergencycall-902f1.firebaseapp.com",
+    databaseURL: "https://emergencycall-902f1.firebaseio.com",
+    projectId: "emergencycall-902f1",
+    storageBucket: "emergencycall-902f1.appspot.com",
+    messagingSenderId: "786404608393"
 }
 };

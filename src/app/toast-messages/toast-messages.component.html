@@ -1,3 +1,9 @@
-<li *ngFor="let item of messages | async | reverse" >
-  <ul>{{ item }}</ul>
-</li>
+<ul *ngFor="let message of messages | async" >
+  <li>{{ message.payload.val().content }}</li>
+  <button class="delete" (click)="dismiss(message.key)">delete</button>
+
+</ul>
+
+
+
+<button class="" (click)="infoMessage()">infoMessage</button>

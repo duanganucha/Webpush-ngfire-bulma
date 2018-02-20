@@ -5,6 +5,7 @@ import {
   FirebaseObjectObservable,
   FirebaseListObservable
 } from 'angularfire2/database-deprecated';
+import { Observable } from 'rxjs/Observable';
 
 export class Message {
   content: string;
@@ -23,19 +24,14 @@ export class ToastService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  getMessages(): FirebaseListObservable<Message[]> {
-    return this.db.list('/messages', );
-
-
-  }
 
   sendMessage(content, style) {
-    
-    const message = new Message("i love you", "info")
+    const message = new Message(content, style)
     this.db.list('/messages').push(message)
   }
 
   dismissMessage(messageKey) {
+
     this.db.object(`messages/${messageKey}`).update({'dismissed': true})
   }
 

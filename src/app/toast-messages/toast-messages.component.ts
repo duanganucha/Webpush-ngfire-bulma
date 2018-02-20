@@ -1,5 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastService } from '../toast.service';
+import { Observable } from 'rxjs/Observable';
+import {  AngularFireDatabase } from 'angularfire2/database';
+
+// import {
+//   AngularFireDatabase,
+//   FirebaseObjectObservable,
+//   FirebaseListObservable
+// } from 'angularfire2/database-deprecated';
+
 
 @Component({
   selector: 'toast-messages',
@@ -8,22 +17,27 @@ import { ToastService } from '../toast.service';
 })
 export class ToastMessagesComponent implements OnInit {
   
-  messages: any;
+  messages : Observable<any>;
 
-  constructor(private toast: ToastService) { }
+
+  constructor(private toast: ToastService ,private database: AngularFireDatabase) { }
 
   ngOnInit() {
-    this.messages = this.toast.getMessages()
-    console.log(this.messages)
+    this.messages = this.database.list('messages', ref => ref.orderByChild('timestamp')).snapshotChanges()
+
   }
 
-  // dismiss(itemKey) {
-  //   this.toast.dismissMessage(itemKey)
-  // }
+  dismiss(itemKey) {
 
-  // infoMessage() {
-  //   const message = "I have some useful information for you..."
-  //   this.toast.sendMessage(message, 'info')
-  // }
+    console.log(itemKey)
+    let itemRef = this.database.list('messages');
+    itemRef.remove(itemKey);
+  }
+
+  infoMessage() {
+    console.log('infoMessage')
+    const message = "I have some useful information for you..."
+    this.toast.sendMessage(message, 'info')
+  }
 
 }
