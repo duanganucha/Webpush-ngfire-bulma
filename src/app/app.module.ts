@@ -1,3 +1,5 @@
+import { ToastService } from './toast.service';
+import { reverse } from 'lodash';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -9,7 +11,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,reverse
   ],
   imports: [
     BrowserModule,
@@ -17,7 +19,7 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
     AngularFirestoreModule,
     AngularFireStorageModule,
   ],
-  providers: [],
+  providers: [ToastService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
